@@ -136,6 +136,19 @@ Open the interactive UI with the live latency waterfall and citation inspector:
 streamlit run ui/streamlit_app.py
 ```
 
+### 5. Unified Terminal CLI
+Query, ingest, and inspect cache directly from your terminal:
+```bash
+# Run grounded financial query
+python cli.py query "What are NVIDIA's main TSMC risks in 2024?" --ticker NVDA --year 2024
+
+# Ingest 10-K from SEC EDGAR
+python cli.py ingest --ticker AAPL --year 2024
+
+# View two-tier cache statistics
+python cli.py cache
+```
+
 ---
 
 ## 📊 Benchmark Results
