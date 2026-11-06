@@ -128,6 +128,10 @@ with st.expander("💡 Click to load example queries"):
         "What was Apple's total net sales and how much did Services contribute in fiscal 2024?",
         "What does Apple disclose regarding international trade risks and geopolitical tensions in China?",
         "How did Microsoft's Intelligent Cloud segment perform in fiscal year 2024 and what drove Azure growth?",
+        "What was AWS revenue in fiscal 2024 and what drove its 19% year-over-year growth?",
+        "How much revenue did Google Cloud generate in 2024 and what was its operating income?",
+        "What was Meta's total revenue in 2024 and what was Reality Labs operating loss?",
+        "How much did Tesla's Energy generation and storage segment grow in fiscal 2024?",
         "How many electric commercial aircraft did Apple manufacture in 2024? (Refusal Test)",
     ]
     cols = st.columns(2)
