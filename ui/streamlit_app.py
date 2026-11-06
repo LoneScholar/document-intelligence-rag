@@ -65,6 +65,29 @@ vector_store, bm25_index, hybrid_retriever, cache_manager, generator, chunker, d
 with st.sidebar:
     st.title("⚙️ System Control")
 
+    st.subheader("🤖 LLM Synthesizer Engine")
+    provider_options = [
+        "mock (Deterministic Baseline)",
+        "gemini (Cloud Gemini API)",
+        "openai (OpenAI API)",
+        "ollama (Local Mistral via Ollama)",
+        "local-lora (Fine-Tuned Mistral-7B)",
+    ]
+    # Default to current provider
+    default_idx = 0
+    for i, opt in enumerate(provider_options):
+        if generator.provider == opt.split(" ")[0]:
+            default_idx = i
+            break
+    selected_provider_label = st.selectbox("Active Synthesizer", provider_options, index=default_idx)
+    target_provider = selected_provider_label.split(" ")[0]
+    if generator.provider != target_provider:
+        generator.provider = target_provider
+        generator._init_client()
+        st.toast(f"Synthesizer switched to {target_provider}!")
+
+    st.divider()
+
     st.subheader("📊 Two-Tier Cache Telemetry")
     cache_stats = cache_manager.stats()
     col1, col2 = st.columns(2)
