@@ -94,3 +94,4 @@ if __name__ == "__main__":
 
     data_dir = format_dataset_for_mlx(args.train_file)
     run_mlx_lora(data_dir=data_dir, adapter_path=args.output_dir, iters=args.iters)
+
