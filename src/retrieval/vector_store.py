@@ -194,3 +194,10 @@ class VectorStore:
         except Exception:
             return 0
 
+    def close(self) -> None:
+        """Explicitly release local Qdrant resources and file locks."""
+        try:
+            self.client.close()
+        except Exception:
+            pass
+
