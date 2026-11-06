@@ -6,23 +6,57 @@ Uses SHA-256 hashing over normalized text and optional filter payloads with LRU 
 
 import hashlib
 import json
+import os
 import re
 import threading
 import time
 from collections import OrderedDict
+from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
 
 class ExactCache:
-    """Thread-safe L1 In-Memory LRU Cache keyed by SHA-256 of normalized query & filters."""
+    """Thread-safe L1 LRU Cache keyed by SHA-256 of normalized query & filters with disk persistence."""
 
-    def __init__(self, max_size: int = 5000, default_ttl_seconds: int = 86400):
+    def __init__(
+        self,
+        max_size: int = 5000,
+        default_ttl_seconds: int = 86400,
+        storage_path: Optional[str] = "data/cache_storage/exact_cache.json",
+    ):
         self.max_size = max_size
         self.default_ttl_seconds = default_ttl_seconds
+        self.storage_path = Path(storage_path) if storage_path else None
         self._cache: OrderedDict[str, Dict[str, Any]] = OrderedDict()
         self._lock = threading.Lock()
         self._hits = 0
         self._misses = 0
+        self._load_from_disk()
+
+    def _load_from_disk(self) -> None:
+        """Load persisted cache entries from disk."""
+        if not self.storage_path or not self.storage_path.exists():
+            return
+        try:
+            with open(self.storage_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                now = time.time()
+                for k, v in data.items():
+                    if v.get("expires_at", 0) > now:
+                        self._cache[k] = v
+        except Exception:
+            pass
+
+    def _persist_to_disk(self) -> None:
+        """Persist cache entries to disk."""
+        if not self.storage_path:
+            return
+        try:
+            self.storage_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(self.storage_path, "w", encoding="utf-8") as f:
+                json.dump(self._cache, f)
+        except Exception:
+            pass
 
     @staticmethod
     def normalize_query(query: str) -> str:
@@ -94,6 +128,7 @@ class ExactCache:
                 "created_at": time.time(),
                 "query": query,
             }
+            self._persist_to_disk()
         return key
 
     def clear(self) -> None:
@@ -102,6 +137,7 @@ class ExactCache:
             self._cache.clear()
             self._hits = 0
             self._misses = 0
+            self._persist_to_disk()
 
     def stats(self) -> Dict[str, Any]:
         """Return cache health and telemetry statistics."""
