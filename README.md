@@ -1,5 +1,7 @@
 # Enterprise Financial Document Intelligence: Hybrid RAG & Fine-Tuned SLM
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LoneScholar/document-intelligence-rag/blob/main/notebooks/finetune_mistral_7b_qlora.ipynb)
+
 A production-grade Financial Document Intelligence system indexing SEC 10-K annual reports across the Magnificent 7 (NVIDIA, Apple, Microsoft, Alphabet, Amazon, Meta, Tesla). Combines **Two-Tier Caching** (SHA-256 exact match + FastEmbed cosine semantic cache with temporal entity guardrails), **Hybrid Retrieval** (Qdrant dense vector search + BM25 sparse keyword search merged via Reciprocal Rank Fusion), and a **FlashRank Neural Cross-Encoder** with grounded citation enforcement.
 
 ---
