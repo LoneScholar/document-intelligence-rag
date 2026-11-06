@@ -149,3 +149,4 @@ class HybridRetriever:
         }
 
         return final_results, telemetry
+

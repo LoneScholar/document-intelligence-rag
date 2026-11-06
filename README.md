@@ -154,3 +154,4 @@ streamlit run ui/streamlit_app.py
   - Engineered a two-tier caching layer (SHA-256 exact hash + FastEmbed cosine semantic cache), intercepting repeat queries in $<25\text{ms}$ and reducing token expenditures by 38%.
   - Fine-tuned Mistral-7B-Instruct via 4-bit QLoRA to serve as an on-premise grounded synthesizer, achieving 92% Faithfulness and strict page-level citation compliance on benchmark evaluations.
   - Deployed a streaming FastAPI backend with Server-Sent Events (SSE) paired with an interactive Streamlit analytics dashboard.
+

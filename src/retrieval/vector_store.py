@@ -193,3 +193,4 @@ class VectorStore:
             return self.client.count(collection_name=self.collection_name).count
         except Exception:
             return 0
+

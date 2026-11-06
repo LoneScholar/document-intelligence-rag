@@ -54,3 +54,4 @@ USER QUERY:
 
 REMINDER: Answer strictly using facts from the excerpts above. Include mandatory citations formatted as [Ticker, Year, Section]. If disclosures are insufficient, explicitly refuse.
 """
+

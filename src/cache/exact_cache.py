@@ -116,3 +116,4 @@ class ExactCache:
                 "misses": self._misses,
                 "hit_rate": round(hit_rate, 4),
             }
+

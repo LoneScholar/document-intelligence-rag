@@ -103,3 +103,4 @@ def test_citation_audit_verification():
     assert audit_bad["total_citations"] == 1
     assert audit_bad["ungrounded_count"] == 1
     assert audit_bad["citation_precision"] == 0.0
+

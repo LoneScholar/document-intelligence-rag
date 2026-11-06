@@ -322,3 +322,4 @@ class BenchmarkRunner:
 if __name__ == "__main__":
     runner = BenchmarkRunner()
     runner.run_benchmark()
+

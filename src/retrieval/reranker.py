@@ -53,3 +53,4 @@ class NeuralReranker:
             top_results.append(enriched)
 
         return top_results
+

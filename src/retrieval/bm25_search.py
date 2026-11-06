@@ -131,3 +131,4 @@ class BM25SearchIndex:
             self.tokenized_corpus = data["tokenized_corpus"]
             self.bm25 = BM25Okapi(self.tokenized_corpus)
         return True
+

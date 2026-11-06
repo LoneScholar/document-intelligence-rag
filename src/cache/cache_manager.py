@@ -142,3 +142,4 @@ class CacheManager:
             "l1_details": self.exact_cache.stats(),
             "l2_details": self.semantic_cache.stats(),
         }
+

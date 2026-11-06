@@ -269,3 +269,4 @@ if st.button("🔍 Execute Search & Synthesis", type="primary") or (user_query a
                     f"**Sparse Rank:** {chunk.get('sparse_rank', 'N/A')}"
                 )
                 st.markdown(chunk.get("content", ""))
+

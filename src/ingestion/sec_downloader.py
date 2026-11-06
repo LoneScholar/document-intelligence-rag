@@ -178,3 +178,4 @@ class SECDownloader:
         except Exception as e:
             logger.error("Error downloading 10-K for %s: %s", ticker, e)
             return None
+

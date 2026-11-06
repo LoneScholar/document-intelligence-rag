@@ -28,3 +28,4 @@ numpy>=1.26.0
 # LLM Providers (Multi-provider support: Ollama, HuggingFace, OpenAI, Anthropic, Gemini)
 google-genai>=0.1.1
 openai>=1.50.0
+
