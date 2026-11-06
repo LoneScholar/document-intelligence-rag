@@ -1,0 +1,30 @@
+{
+  "naive_baseline": {
+    "pipeline": "Naive Baseline (Dense Only)",
+    "hit_rate_at_5": 0.7143,
+    "mrr": 0.7143,
+    "avg_latency_ms": 10.09,
+    "total_tokens": 9821
+  },
+  "enterprise_cold": {
+    "pipeline": "Enterprise Hybrid RAG (Cold)",
+    "hit_rate_at_5": 0.7143,
+    "mrr": 0.7143,
+    "citation_precision": 1.0,
+    "avg_latency_ms": 78.4,
+    "total_tokens": 10067,
+    "cache_hit_rate": "0.0%"
+  },
+  "enterprise_warm": {
+    "pipeline": "Enterprise Hybrid RAG (Warm / Cached)",
+    "hit_rate_at_5": 0.7143,
+    "mrr": 0.7143,
+    "citation_precision": 1.0,
+    "avg_latency_ms": 0.02,
+    "total_tokens": 0,
+    "cache_hit_rate": "50.0%",
+    "tokens_saved": 10067
+  },
+  "mrr_improvement_pct": 0.0,
+  "latency_reduction_warm_pct": 99.8
+}

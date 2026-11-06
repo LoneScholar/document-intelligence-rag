@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.venv/
+venv/
+ENV/
+
+# Qdrant local storage
+data/qdrant_db/
+data/cache_storage/
+data/raw_filings/*.htm
+data/raw_filings/*.html
+data/raw_filings/*.pdf
+
+# Keep eval golden set
+!data/eval_golden_set.json
+!data/raw_filings/.gitkeep
+
+# Environment variables
+.env
+
+# Model checkpoints & training outputs
+checkpoints/
+lora_output/
+wandb/
+.cache/
+fastembed_cache/
+
+# OS
+.DS_Store
+Thumbs.db

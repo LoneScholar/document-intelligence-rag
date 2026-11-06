@@ -1,0 +1,72 @@
+[
+  {
+    "query_id": "NVDA_01",
+    "ticker": "NVDA",
+    "fiscal_year": 2024,
+    "query": "What are NVIDIA's primary risks regarding semiconductor foundry concentration and TSMC?",
+    "expected_section": "ITEM 1A. RISK FACTORS",
+    "ground_truth_citation": "[NVDA, 2024, ITEM 1A. RISK FACTORS]",
+    "key_facts": ["TSMC", "Taiwan", "foundry concentration", "wafer fabrication"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "NVDA_02",
+    "ticker": "NVDA",
+    "fiscal_year": 2024,
+    "query": "What drove the revenue growth in NVIDIA's Compute & Networking segment in fiscal year 2024?",
+    "expected_section": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS",
+    "ground_truth_citation": "[NVDA, 2024, ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS]",
+    "key_facts": ["Compute & Networking", "Data Center", "HGX", "Hopper", "217%"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "AAPL_01",
+    "ticker": "AAPL",
+    "fiscal_year": 2024,
+    "query": "What was Apple's total net sales and how much did Services contribute in fiscal 2024?",
+    "expected_section": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS",
+    "ground_truth_citation": "[AAPL, 2024, ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS]",
+    "key_facts": ["$391.0 billion", "Services", "$96.2 billion"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "AAPL_02",
+    "ticker": "AAPL",
+    "fiscal_year": 2024,
+    "query": "What does Apple disclose regarding international trade risks and geopolitical tensions in China?",
+    "expected_section": "ITEM 1A. RISK FACTORS",
+    "ground_truth_citation": "[AAPL, 2024, ITEM 1A. RISK FACTORS]",
+    "key_facts": ["China", "supply chain", "tariffs", "manufacturing"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "MSFT_01",
+    "ticker": "MSFT",
+    "fiscal_year": 2024,
+    "query": "How did Microsoft's Intelligent Cloud segment perform in fiscal year 2024 and what drove Azure growth?",
+    "expected_section": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS",
+    "ground_truth_citation": "[MSFT, 2024, ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS]",
+    "key_facts": ["Intelligent Cloud", "Azure", "cloud services", "AI services"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "REFUSAL_01",
+    "ticker": "NVDA",
+    "fiscal_year": 2024,
+    "query": "How many units of electric vehicle charging stations did NVIDIA manufacture and sell in 2024?",
+    "expected_section": "NONE",
+    "ground_truth_citation": "NONE",
+    "key_facts": ["insufficient to confirm"],
+    "is_refusal_expected": true
+  },
+  {
+    "query_id": "REFUSAL_02",
+    "ticker": "AAPL",
+    "fiscal_year": 2024,
+    "query": "What was Apple's total commercial aircraft leasing revenue in fiscal 2024?",
+    "expected_section": "NONE",
+    "ground_truth_citation": "NONE",
+    "key_facts": ["insufficient to confirm"],
+    "is_refusal_expected": true
+  }
+]
