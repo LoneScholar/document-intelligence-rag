@@ -52,6 +52,24 @@ class FinancialGenerator:
             except Exception:
                 self.provider = "mock"
                 self.client = None
+        elif self.provider in ["local-lora", "mistral-local"]:
+            try:
+                import torch
+                from peft import PeftModel
+                from transformers import AutoModelForCausalLM, AutoTokenizer
+                adapter_path = os.getenv("LORA_ADAPTER_PATH", "checkpoints/mistral_7b_financial_lora")
+                base_model = self.model_name or "mistralai/Mistral-7B-Instruct-v0.3"
+                self.local_tokenizer = AutoTokenizer.from_pretrained(adapter_path if os.path.exists(adapter_path) else base_model)
+                device = "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu")
+                model = AutoModelForCausalLM.from_pretrained(base_model, torch_dtype=torch.float16 if device != "cpu" else torch.float32)
+                if os.path.exists(adapter_path):
+                    self.local_model = PeftModel.from_pretrained(model, adapter_path).to(device)
+                else:
+                    self.local_model = model.to(device)
+                self.client = True
+            except Exception:
+                self.provider = "mock"
+                self.client = None
         else:
             self.provider = "mock"
             self.client = None
