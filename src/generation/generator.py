@@ -197,6 +197,13 @@ class FinancialGenerator:
                     temperature=temperature,
                 )
                 answer_text = response.choices[0].message.content or ""
+            elif self.provider in ["local-lora", "mistral-local"] and hasattr(self, "local_model"):
+                import torch
+                inputs = self.local_tokenizer(user_prompt, return_tensors="pt").to(self.local_model.device)
+                with torch.no_grad():
+                    outputs = self.local_model.generate(**inputs, max_new_tokens=350, temperature=temperature or 0.1)
+                full_gen = self.local_tokenizer.decode(outputs[0], skip_special_tokens=True)
+                answer_text = full_gen[len(user_prompt):].strip() if full_gen.startswith(user_prompt) else full_gen
             else:
                 answer_text = self._mock_synthesis(query, retrieved_chunks)
         except Exception as e:
@@ -254,6 +261,17 @@ class FinancialGenerator:
                 content = chunk.choices[0].delta.content
                 if content:
                     yield content
+
+        elif self.provider in ["local-lora", "mistral-local"] and hasattr(self, "local_model"):
+            from threading import Thread
+            from transformers import TextIteratorStreamer
+            streamer = TextIteratorStreamer(self.local_tokenizer, skip_prompt=True, skip_special_tokens=True)
+            inputs = self.local_tokenizer(user_prompt, return_tensors="pt").to(self.local_model.device)
+            gen_kwargs = dict(**inputs, streamer=streamer, max_new_tokens=350, temperature=temperature or 0.1)
+            thread = Thread(target=self.local_model.generate, kwargs=gen_kwargs)
+            thread.start()
+            for text_chunk in streamer:
+                yield text_chunk
 
         else:
             # Mock streaming word by word
