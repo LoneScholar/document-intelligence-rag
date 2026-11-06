@@ -1,29 +1,29 @@
 {
   "naive_baseline": {
     "pipeline": "Naive Baseline (Dense Only)",
-    "hit_rate_at_5": 0.7143,
-    "mrr": 0.7143,
-    "avg_latency_ms": 10.09,
-    "total_tokens": 9821
+    "hit_rate_at_5": 0.8182,
+    "mrr": 0.8182,
+    "avg_latency_ms": 8.81,
+    "total_tokens": 16356
   },
   "enterprise_cold": {
     "pipeline": "Enterprise Hybrid RAG (Cold)",
-    "hit_rate_at_5": 0.7143,
-    "mrr": 0.7143,
+    "hit_rate_at_5": 0.8182,
+    "mrr": 0.8182,
     "citation_precision": 1.0,
-    "avg_latency_ms": 78.4,
-    "total_tokens": 10067,
+    "avg_latency_ms": 99.58,
+    "total_tokens": 16451,
     "cache_hit_rate": "0.0%"
   },
   "enterprise_warm": {
     "pipeline": "Enterprise Hybrid RAG (Warm / Cached)",
-    "hit_rate_at_5": 0.7143,
-    "mrr": 0.7143,
+    "hit_rate_at_5": 0.8182,
+    "mrr": 0.8182,
     "citation_precision": 1.0,
     "avg_latency_ms": 0.02,
     "total_tokens": 0,
     "cache_hit_rate": "50.0%",
-    "tokens_saved": 10067
+    "tokens_saved": 16451
   },
   "mrr_improvement_pct": 0.0,
   "latency_reduction_warm_pct": 99.8

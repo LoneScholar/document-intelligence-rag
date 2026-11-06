@@ -50,6 +50,46 @@
     "is_refusal_expected": false
   },
   {
+    "query_id": "AMZN_01",
+    "ticker": "AMZN",
+    "fiscal_year": 2024,
+    "query": "What was AWS revenue in fiscal 2024 and what was its year-over-year percentage growth?",
+    "expected_section": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS",
+    "ground_truth_citation": "[AMZN, 2024, ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS]",
+    "key_facts": ["$107.6 billion", "19%", "AWS", "Trainium2", "Bedrock"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "GOOGL_01",
+    "ticker": "GOOGL",
+    "fiscal_year": 2024,
+    "query": "How much revenue did Google Cloud generate in 2024 and what was its operating income?",
+    "expected_section": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS",
+    "ground_truth_citation": "[GOOGL, 2024, ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS]",
+    "key_facts": ["$43.6 billion", "$5.8 billion", "Google Cloud", "GCP", "TPU"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "META_01",
+    "ticker": "META",
+    "fiscal_year": 2024,
+    "query": "What was Meta's total revenue in 2024 and what was Reality Labs operating loss?",
+    "expected_section": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS",
+    "ground_truth_citation": "[META, 2024, ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS]",
+    "key_facts": ["$164.8 billion", "$17.5 billion loss", "Reality Labs", "Family of Apps"],
+    "is_refusal_expected": false
+  },
+  {
+    "query_id": "TSLA_01",
+    "ticker": "TSLA",
+    "fiscal_year": 2024,
+    "query": "How much did Tesla's Energy generation and storage segment grow in fiscal 2024?",
+    "expected_section": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS",
+    "ground_truth_citation": "[TSLA, 2024, ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS]",
+    "key_facts": ["$13.0 billion", "115%", "Megapack", "energy storage"],
+    "is_refusal_expected": false
+  },
+  {
     "query_id": "REFUSAL_01",
     "ticker": "NVDA",
     "fiscal_year": 2024,
@@ -70,4 +110,3 @@
     "is_refusal_expected": true
   }
 ]
-
